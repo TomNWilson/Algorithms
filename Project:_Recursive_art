@@ -1,0 +1,23 @@
+//recursive function to draw shape
+var drawShape = function(x, y, radiusX, radiusY, opacity, colorG) {
+    //setting colours
+    stroke(155, colorG + 60, 200, opacity + 50);
+    fill(190, colorG, 255, opacity);
+    //drawing ellipse
+    ellipse(x, y, radiusX, radiusY);
+    
+    //increasing colour and opacity
+    var newOpacity = opacity + 2;
+    var newcolorG = colorG + 20;
+    //making circle thinner and taller
+    var newRadiusX = radiusX/1.1;
+    var newRadiusY = radiusY*1.023;
+    
+    //if circle is not too small, calls function with new values
+    if (newRadiusX >= 5) {
+        drawShape(x, y, newRadiusX, newRadiusY, newOpacity, newcolorG);
+    }
+};
+
+//calling function
+drawShape(width/2, height/2, 392, 100, 10, -1);
